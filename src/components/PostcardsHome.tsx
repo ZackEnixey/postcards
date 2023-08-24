@@ -28,7 +28,7 @@ const PostcardsHome: React.FC = () => {
     const backSideImages = [ postcardBackBlue, postcardBackGreen, postcardBackPink, postcardBackYellow ]; // TO DO: randomly assign this as background
     const randomBackImage = backSideImages[Math.floor(Math.random() * backSideImages.length)];
 
-    const [selectedImage, setSelectedImage] = useState<string | null>(null);
+    const [selectedImage, setSelectedImage] = useState<string | null>(postcardFront9);
     
     const [textToPrint, setTextToPrint] = useState<string>('');
 
@@ -51,7 +51,6 @@ const PostcardsHome: React.FC = () => {
             
             {selectedImage && (
                 <div className="ImageContainer">
-                    <img src={selectedImage} alt="Selected Postcard" className="SelectedImage" />
                     <PDFViewer width="100%" height={600}>
                         <PDFGenerator selectedImage={selectedImage} enteredText={textToPrint} backImage={randomBackImage} />
                     </PDFViewer>
