@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import ImageList from './ImageList';
+import PDFGenerator from './PDFGenerator';
+import { PDFViewer } from '@react-pdf/renderer';
+
 import postcardFront1 from '../postcardImages/postcardFront1.png';
 import postcardFront2 from '../postcardImages/postcardFront2.png';
 import postcardFront3 from '../postcardImages/postcardFront3.png';
@@ -34,22 +37,32 @@ const PostcardsHome: React.FC = () => {
         setEnteredText(event.target.value);
     };
 
+    const download = () => {
+        console.log("download");
+    }
+
     return (
         <div className="App">
-        <h1>Select a Postcard Image</h1>
+        <h2>Select a Postcard Image by clicking on it, and type a gratitude note</h2>
         <textarea
             placeholder="Enter your text here..."
             value={enteredText}
             onChange={(e: any) => handleTextChange(e)}
             />
-        
-        <ImageList images={frontSideImages} onSelectImage={handleSelectImage} selectedImage={selectedImage} />
-        
-        {selectedImage && (
-            <div className="ImageContainer">
-                <img src={selectedImage} alt="Selected Postcard" className="SelectedImage" />
-            </div>
-        )}
+        <button onClick={download}>DOWNLOAD</button>
+
+        <div className="flex">
+            <ImageList images={frontSideImages} onSelectImage={handleSelectImage} selectedImage={selectedImage} />
+            
+            {selectedImage && (
+                <div className="ImageContainer">
+                    <img src={selectedImage} alt="Selected Postcard" className="SelectedImage" />
+                    <PDFViewer width="100%" height={600}>
+                        <PDFGenerator selectedImage={selectedImage} enteredText={enteredText} />
+                    </PDFViewer>
+                </div>
+            )}
+        </div>
         </div>
     );
 };
