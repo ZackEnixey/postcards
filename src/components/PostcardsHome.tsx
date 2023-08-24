@@ -49,7 +49,6 @@ const PostcardsHome: React.FC = () => {
             value={enteredText}
             onChange={(e: any) => handleTextChange(e)}
             />
-        <button onClick={download}>DOWNLOAD</button>
 
         <div className="flex">
             <ImageList images={frontSideImages} onSelectImage={handleSelectImage} selectedImage={selectedImage} />

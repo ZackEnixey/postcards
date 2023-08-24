@@ -1,5 +1,6 @@
 import React from 'react';
 import { Document, Page, Image, Text, View, StyleSheet } from '@react-pdf/renderer';
+import postcardBackBlue from '../postcardImages/postcardBackBlue.png';
 
 interface PDFGeneratorProps {
   selectedImage: string | null;
@@ -12,16 +13,26 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
     flexGrow: 1,
-    margin: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  image: {
-    width: '50%',
+  topImage: {
+    width: '80%',
     height: 'auto',
-    marginRight: 20,
+  },
+  bottomImage: {
+    width: '80%',
+    height: 'auto',
+    marginTop: 20,
+  },
+  textOnImage: {
+    position: 'absolute',
+    top: '75%',
+    left: '50%',
+    width: '52%',
+    transform: 'translate(-50%, -50%)',
+    textAlign: 'center',
   },
   text: {
     fontFamily: 'Helvetica',
@@ -34,8 +45,16 @@ const PDFGenerator: React.FC<PDFGeneratorProps> = ({ selectedImage, enteredText 
     <Document>
       <Page size="A4" style={styles.page}>
         <View style={styles.container}>
-          <Image src={selectedImage || ''} style={styles.image} />
-          <Text style={styles.text}>{enteredText}</Text>
+          {/* Display the selected image at the top */}
+          <Image src={selectedImage || ''} style={styles.topImage} />
+
+          {/* Display the imported bottom image */}
+          <Image src={postcardBackBlue} style={styles.bottomImage} />
+
+          {/* Display the entered text over the imported bottom image */}
+          <View style={styles.textOnImage}>
+            <Text style={styles.text}>{enteredText}</Text>
+          </View>
         </View>
       </Page>
     </Document>
