@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
   textOnImage: {
     position: 'absolute',
-    top: '75%',
+    top: '70%',
     left: '30%',
     width: '52%',
     transform: 'translate(-50%, -50%)',
