@@ -1,5 +1,14 @@
+@import './css/Postcards.css';
+
+/* src/postcardsHome.css */
 .App {
-  text-align: center;
+  background-color: #1890ff;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .App-logo {
