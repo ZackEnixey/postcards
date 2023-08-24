@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ImageList from './ImageList';
+import TextareaCustom from './TextareaCustom';
 import PDFGenerator from './PDFGenerator';
 import { PDFViewer } from '@react-pdf/renderer';
 
@@ -25,30 +26,25 @@ const PostcardsHome: React.FC = () => {
     ];
 
     const backSideImages = [ postcardBackBlue, postcardBackGreen, postcardBackPink, postcardBackYellow ]; // TO DO: randomly assign this as background
+    const randomBackImage = backSideImages[Math.floor(Math.random() * backSideImages.length)];
 
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
-    const [enteredText, setEnteredText] = useState<string>('');
+    
+    const [textToPrint, setTextToPrint] = useState<string>('');
 
     const handleSelectImage = (image: string) => {
         setSelectedImage(image);
     };
 
-    const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setEnteredText(event.target.value);
-    };
-
-    const download = () => {
-        console.log("download");
+   
+    const generatePdf = (enteredText: string) => {
+        setTextToPrint(enteredText);
     }
 
     return (
         <div className="App">
         <h2>Select a Postcard Image by clicking on it, and type a gratitude note</h2>
-        <textarea
-            placeholder="Enter your text here..."
-            value={enteredText}
-            onChange={(e: any) => handleTextChange(e)}
-            />
+        <TextareaCustom generatePdf={generatePdf}/>
 
         <div className="flex">
             <ImageList images={frontSideImages} onSelectImage={handleSelectImage} selectedImage={selectedImage} />
@@ -57,7 +53,7 @@ const PostcardsHome: React.FC = () => {
                 <div className="ImageContainer">
                     <img src={selectedImage} alt="Selected Postcard" className="SelectedImage" />
                     <PDFViewer width="100%" height={600}>
-                        <PDFGenerator selectedImage={selectedImage} enteredText={enteredText} />
+                        <PDFGenerator selectedImage={selectedImage} enteredText={textToPrint} backImage={randomBackImage} />
                     </PDFViewer>
                 </div>
             )}

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Document, Page, Image, Text, View, StyleSheet } from '@react-pdf/renderer';
-import postcardBackBlue from '../postcardImages/postcardBackBlue.png';
 
 interface PDFGeneratorProps {
   selectedImage: string | null;
   enteredText: string;
+  backImage: string | null;
 }
 
 const styles = StyleSheet.create({
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   textOnImage: {
     position: 'absolute',
     top: '75%',
-    left: '50%',
+    left: '30%',
     width: '52%',
     transform: 'translate(-50%, -50%)',
     textAlign: 'center',
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const PDFGenerator: React.FC<PDFGeneratorProps> = ({ selectedImage, enteredText }) => {
+const PDFGenerator: React.FC<PDFGeneratorProps> = ({ selectedImage, enteredText, backImage }) => {
   return (
     <Document>
       <Page size="A4" style={styles.page}>
@@ -49,7 +49,7 @@ const PDFGenerator: React.FC<PDFGeneratorProps> = ({ selectedImage, enteredText 
           <Image src={selectedImage || ''} style={styles.topImage} />
 
           {/* Display the imported bottom image */}
-          <Image src={postcardBackBlue} style={styles.bottomImage} />
+          <Image src={backImage || ''} style={styles.bottomImage} />
 
           {/* Display the entered text over the imported bottom image */}
           <View style={styles.textOnImage}>
