@@ -192,7 +192,7 @@ textarea {
 }
 
 .carousel_holder {
-  max-width: 600px;
+  
 }
 
 .CarouselContainer {
@@ -309,12 +309,80 @@ h2 {
 
 .left_holder {
  width: 50%;
- max-width: 600px;
+ 
  margin: 0px 25px;
 }
 
 .right_holder {
   width: 50%;
-  max-width: 600px;
+  
   margin: 0px 25px;
+}
+
+.colors_pallete {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+
+}
+
+.color_circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #61E7A8; 
+  cursor: pointer;
+  position: relative;
+}
+
+.color_circle:hover {
+  opacity: 0.5;
+}
+
+.check_mark {
+  width: 50px;
+  height: 50px;
+}
+
+.check_mark::before,
+.check_mark::after {
+  content: '';
+  position: absolute;
+  background-color: white;
+  width: 0;
+  height: 5px;
+  transform-origin: left;
+  animation-duration: var(--animation-speed);
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.check_mark::before {
+  top: 22px;
+  left: 12px;
+  transform: rotate(45deg);
+  animation-name: left;
+  animation-delay: 0.1s;
+}
+
+.check_mark::after {
+  top: 33px;
+  left: 20px;
+  transform: rotate(-45deg);
+  animation-name: right;
+  animation-delay: 0.2s;
+}
+
+
+@media screen and (max-width: 1000px){
+  .left_holder {
+      width: 100%;
+  }
+  .right_holder {
+      width: 100%;
+  }
+}
+
+.pdf_viewer_wrapper {
+  margin-top: 20px;
 }

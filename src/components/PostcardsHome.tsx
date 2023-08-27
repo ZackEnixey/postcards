@@ -22,17 +22,24 @@ import postcardBackYellow from '../postcardImages/postcardBackYellow.png';
 import SendPdfToEmail from './SendPdfToEmail';
 
 const PostcardsHome: React.FC = () => {
+    const [pdfForEmail, setPdfForEmail] = useState<Blob>();
+    const [selectedImage, setSelectedImage] = useState<string | null>(postcardFront9);
+    const [textToPrint, setTextToPrint] = useState<string>('');
+
     const frontSideImages = [ postcardFront1, postcardFront2, postcardFront3, postcardFront4, postcardFront5,
         postcardFront6, postcardFront7, postcardFront8, postcardFront9, postcardFront10
     ];
+    const backSideImages = [ postcardBackGreen, postcardBackPink, postcardBackYellow, postcardBackBlue ]; // TO DO: randomly assign this as background
+    const [selectedColor, setSelectedColor] = useState<string>("pink");
 
-    const backSideImages = [ postcardBackBlue, postcardBackGreen, postcardBackPink, postcardBackYellow ]; // TO DO: randomly assign this as background
-    const randomBackImage = backSideImages[Math.floor(Math.random() * backSideImages.length)];
+    const colorsArray = ["green", "pink", "gold", "blue"];
+    const selectedColorIndex = colorsArray.indexOf(selectedColor);
+    const randomBackImage = backSideImages[selectedColorIndex];
 
-    const [selectedImage, setSelectedImage] = useState<string | null>(postcardFront9);
-    
-    const [textToPrint, setTextToPrint] = useState<string>('');
-    const [pdfForEmail, setPdfForEmail] = useState<Blob>();
+
+    const handleColorClick = (color: string) => {
+        setSelectedColor(color);
+    };
 
     const handleSelectImage = (image: string) => {
         setSelectedImage(image);
@@ -75,9 +82,39 @@ const PostcardsHome: React.FC = () => {
             </div>
 
             <div className='right_holder'>
-                <h2>Write a Thoughtful Gratitude Note for the Postcard</h2>
+                <h2>Select a color</h2>
+                <div className='colors_pallete'>
+                    <div
+                        className={`color_circle ${selectedColor ==="green" ? 'check_mark' : ''}`}
+                        style={{ background: "#53BD8B" }}
+                        onClick={() => handleColorClick("green")}
+                    ></div>
+                    <div
+                        className={`color_circle ${selectedColor ==="pink" ? 'check_mark' : ''}`}
+                        style={{ background: "#FF00A7" }}
+                        onClick={() => handleColorClick("pink")}
+                    ></div>
+                    <div
+                        className={`color_circle ${selectedColor ==="gold" ? 'check_mark' : ''}`}
+                        style={{ background: "#FED100" }}
+                        onClick={() => handleColorClick("gold")}
+                    ></div>
+                    <div
+                        className={`color_circle ${selectedColor ==="blue" ? 'check_mark' : ''}`}
+                        style={{ background: "#61dafb" }}
+                        onClick={() => handleColorClick("blue")}
+                    ></div>
+                </div>
+
+                <h2 style={{marginTop: "50px"}}>Write a Thoughtful Gratitude Note for the Postcard</h2>
                 <TextareaCustom generatePdf={generatePdf}/>
                 {/* <SendPdfToEmail pdfForEmail={pdfForEmail} /> */}
+
+                <div className='pdf_viewer_wrapper'>
+                    <PDFViewer width="100%" height={600}>
+                        <PDFGenerator selectedImage={selectedImage} enteredText={textToPrint} backImage={randomBackImage} />
+                    </PDFViewer>
+                </div>
             </div>
         </div>
     );
