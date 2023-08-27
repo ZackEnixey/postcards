@@ -57,7 +57,18 @@ const PostcardsHome: React.FC = () => {
             setPdfForEmail(blob);
     };
 
-    console.log("I was invoked");
+    const downloadPDF = () => {
+        if (pdfForEmail) {
+          const blobUrl = URL.createObjectURL(pdfForEmail);
+          const a = document.createElement('a');
+          a.href = blobUrl;
+          a.download = 'Uppiness_Gratitude_postcard.pdf'; // Set the desired filename
+          a.click();
+      
+          // Release the object URL
+          URL.revokeObjectURL(blobUrl);
+        }
+      };
 
     return (
         <div className="PostcardsHome">
@@ -67,7 +78,7 @@ const PostcardsHome: React.FC = () => {
                 <div className="flex">
                     <ImageList images={frontSideImages} onSelectImage={handleSelectImage} selectedImage={selectedImage} />
                     
-                    {/* {selectedImage && (
+                    {selectedImage && (
                         <div className="ImageContainer">
                             <BlobProvider document={<PDFGenerator selectedImage={selectedImage} enteredText={textToPrint} backImage={randomBackImage} />}>
                                 {({blob}) => {
@@ -77,7 +88,7 @@ const PostcardsHome: React.FC = () => {
                                 }}
                             </BlobProvider>
                         </div>
-                    )} */}
+                    )}
                 </div>
             </div>
 
@@ -115,6 +126,11 @@ const PostcardsHome: React.FC = () => {
                         <PDFGenerator selectedImage={selectedImage} enteredText={textToPrint} backImage={randomBackImage} />
                     </PDFViewer>
                 </div>
+
+                <div className="CarouselArrows">
+                    <button onClick={downloadPDF} className="ArrowButton" style={{width: "100%"}}>Download the PDF</button>
+                </div>
+
             </div>
         </div>
     );
