@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/postcards/static/css/main.5bf66d13.css",
-    "main.js": "/postcards/static/js/main.87aa56ea.js",
+    "main.js": "/postcards/static/js/main.c96250a8.js",
     "static/js/787.1d282cc3.chunk.js": "/postcards/static/js/787.1d282cc3.chunk.js",
     "static/media/postcardFront3.png": "/postcards/static/media/postcardFront3.cb526530bada75605232.png",
     "static/media/postcardFront10.png": "/postcards/static/media/postcardFront10.bf94e3bd42025c8b548c.png",
@@ -19,11 +19,11 @@
     "static/media/postcardBackPink.png": "/postcards/static/media/postcardBackPink.855dc448c8288dc0c1e2.png",
     "index.html": "/postcards/index.html",
     "main.5bf66d13.css.map": "/postcards/static/css/main.5bf66d13.css.map",
-    "main.87aa56ea.js.map": "/postcards/static/js/main.87aa56ea.js.map",
+    "main.c96250a8.js.map": "/postcards/static/js/main.c96250a8.js.map",
     "787.1d282cc3.chunk.js.map": "/postcards/static/js/787.1d282cc3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5bf66d13.css",
-    "static/js/main.87aa56ea.js"
+    "static/js/main.c96250a8.js"
   ]
 }
