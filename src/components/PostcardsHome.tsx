@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ImageList from './ImageList';
 import TextareaCustom from './TextareaCustom';
 import PDFGenerator from './PDFGenerator';
-import { PDFViewer } from '@react-pdf/renderer';
+import { BlobProvider, PDFViewer } from '@react-pdf/renderer';
 
 import postcardFront1 from '../postcardImages/postcardFront1.png';
 import postcardFront2 from '../postcardImages/postcardFront2.png';
@@ -19,6 +19,7 @@ import postcardBackBlue from '../postcardImages/postcardBackBlue.png';
 import postcardBackGreen from '../postcardImages/postcardBackGreen.png';
 import postcardBackPink from '../postcardImages/postcardBackPink.png';
 import postcardBackYellow from '../postcardImages/postcardBackYellow.png';
+import SendPdfToEmail from './SendPdfToEmail';
 
 const PostcardsHome: React.FC = () => {
     const frontSideImages = [ postcardFront1, postcardFront2, postcardFront3, postcardFront4, postcardFront5,
@@ -31,6 +32,7 @@ const PostcardsHome: React.FC = () => {
     const [selectedImage, setSelectedImage] = useState<string | null>(postcardFront9);
     
     const [textToPrint, setTextToPrint] = useState<string>('');
+    const [pdfForEmail, setPdfForEmail] = useState<Blob>();
 
     const handleSelectImage = (image: string) => {
         setSelectedImage(image);
@@ -41,22 +43,42 @@ const PostcardsHome: React.FC = () => {
         setTextToPrint(enteredText);
     }
 
-    return (
-        <div className="App">
-        <h2>Select a Postcard Image by clicking on it, and type a gratitude note</h2>
-        <TextareaCustom generatePdf={generatePdf}/>
+    const updateTheStatisticsPDF = (blob: Blob) => {
+        if (!blob) return;
 
-        <div className="flex">
-            <ImageList images={frontSideImages} onSelectImage={handleSelectImage} selectedImage={selectedImage} />
-            
-            {selectedImage && (
-                <div className="ImageContainer">
-                    <PDFViewer width="100%" height={600}>
-                        <PDFGenerator selectedImage={selectedImage} enteredText={textToPrint} backImage={randomBackImage} />
-                    </PDFViewer>
+        if (setPdfForEmail)
+            setPdfForEmail(blob);
+    };
+
+    console.log("I was invoked");
+
+    return (
+        <div className="PostcardsHome">
+
+            <div className='left_holder'>
+                <h2>Select a Postcard Image by clicking on it</h2>
+                <div className="flex">
+                    <ImageList images={frontSideImages} onSelectImage={handleSelectImage} selectedImage={selectedImage} />
+                    
+                    {/* {selectedImage && (
+                        <div className="ImageContainer">
+                            <BlobProvider document={<PDFGenerator selectedImage={selectedImage} enteredText={textToPrint} backImage={randomBackImage} />}>
+                                {({blob}) => {
+                                    if(blob)
+                                        updateTheStatisticsPDF(blob);
+                                    return null;
+                                }}
+                            </BlobProvider>
+                        </div>
+                    )} */}
                 </div>
-            )}
-        </div>
+            </div>
+
+            <div className='right_holder'>
+                <h2>Write a Thoughtful Gratitude Note for the Postcard</h2>
+                <TextareaCustom generatePdf={generatePdf}/>
+                {/* <SendPdfToEmail pdfForEmail={pdfForEmail} /> */}
+            </div>
         </div>
     );
 };

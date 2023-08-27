@@ -22,14 +22,16 @@ const TextareaCustom: FC<ITextareaCustom> = ({ generatePdf }) => {
                 placeholder="Enter your text here..."
                 value={enteredText}
                 onChange={handleTextChange}
-                maxLength={500} // Limit to 500 characters
-                style={{ marginBottom: '10px' }} // Add some space below the textarea
+                maxLength={500}
+                style={{ marginBottom: '10px' }} 
             />
-            <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                <p style={{ color: charactersLeft < 0 ? 'red' : 'inherit' }}>
+            <div className="textarea_buttons">
+                <p style={{ marginTop: "0px",  color: charactersLeft < 0 ? 'red' : 'inherit' }}>
                     {charactersLeft} characters left
                 </p>
-                <button onClick={() => generatePdf(enteredText)}> Generate PDF </button>
+                <div className="CarouselArrows">
+                    <button onClick={() => generatePdf(enteredText)} className="ArrowButton" style={{width: "200px"}}>Generate PDF</button>
+                </div>
             </div>
         </div>
     );

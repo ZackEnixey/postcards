@@ -1,14 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 @import './css/Postcards.css';
 
-/* src/postcardsHome.css */
 .App {
-  background-color: #1890ff;
+  display: flex;
+  justify-content: center;
+  background-color: #005776;
+}
+
+.PostcardsHome {
+  background-color: #005776;
   min-height: 100vh;
   padding: 20px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  font-family: 'Fredoka One', sans-serif;
+  color: white;
+  letter-spacing: 0.1mm;
+}
+
+
+
+textarea {
+  font-family: 'Fredoka One', sans-serif;
+  color: black;
+  font-weight: 100;
+  letter-spacing: 0.1mm;
 }
 
 .App-logo {
@@ -43,5 +58,14 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 1000px){
+  .PostcardsHome {
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 100%;
   }
 }
