@@ -74,7 +74,7 @@ const PostcardsHome: React.FC = () => {
         <div className="PostcardsHome">
 
             <div className='left_holder'>
-                <h2>Select a Postcard Image by clicking on it</h2>
+                <h2>Select a postcard image by clicking on it</h2>
                 <div className="flex">
                     <ImageList images={frontSideImages} onSelectImage={handleSelectImage} selectedImage={selectedImage} />
                     
@@ -93,7 +93,7 @@ const PostcardsHome: React.FC = () => {
             </div>
 
             <div className='right_holder'>
-                <h2>Select a color</h2>
+                <h2>Select a color of the postcard background</h2>
                 <div className='colors_pallete'>
                     <div
                         className={`color_circle ${selectedColor ==="green" ? 'check_mark' : ''}`}
@@ -117,7 +117,7 @@ const PostcardsHome: React.FC = () => {
                     ></div>
                 </div>
 
-                <h2 style={{marginTop: "50px"}}>Write a Thoughtful Gratitude Note for the Postcard</h2>
+                <h2 style={{marginTop: "50px"}}>Write a thoughtful gratitude note for the postcard</h2>
                 <TextareaCustom generatePdf={generatePdf}/>
                 {/* <SendPdfToEmail pdfForEmail={pdfForEmail} /> */}
 
