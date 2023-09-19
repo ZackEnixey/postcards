@@ -1,29 +1,29 @@
 {
   "files": {
     "main.css": "/postcards/static/css/main.5bf66d13.css",
-    "main.js": "/postcards/static/js/main.710240d4.js",
+    "main.js": "/postcards/static/js/main.2ee6930c.js",
     "static/js/787.1d282cc3.chunk.js": "/postcards/static/js/787.1d282cc3.chunk.js",
-    "static/media/postcardFront3.png": "/postcards/static/media/postcardFront3.cb526530bada75605232.png",
-    "static/media/postcardFront10.png": "/postcards/static/media/postcardFront10.bf94e3bd42025c8b548c.png",
-    "static/media/postcardFront1.png": "/postcards/static/media/postcardFront1.197047de652b682411f3.png",
-    "static/media/postcardFront4.png": "/postcards/static/media/postcardFront4.99cd7759060daf60f14e.png",
-    "static/media/postcardFront6.png": "/postcards/static/media/postcardFront6.8e237422e32366fe8004.png",
-    "static/media/postcardFront5.png": "/postcards/static/media/postcardFront5.ab7236a9240f5525abcb.png",
-    "static/media/postcardFront7.png": "/postcards/static/media/postcardFront7.682326762bf120b1cc4e.png",
-    "static/media/postcardFront9.png": "/postcards/static/media/postcardFront9.e7f3d0745f005c5ef973.png",
-    "static/media/postcardFront2.png": "/postcards/static/media/postcardFront2.c580c798eb0c702a65f3.png",
-    "static/media/postcardFront8.png": "/postcards/static/media/postcardFront8.90696b0022fe84ede4dc.png",
-    "static/media/postcardBackGreen.png": "/postcards/static/media/postcardBackGreen.567e9973ed2b9fcaf733.png",
-    "static/media/postcardBackYellow.png": "/postcards/static/media/postcardBackYellow.a222964e0779f4baca0e.png",
-    "static/media/postcardBackBlue.png": "/postcards/static/media/postcardBackBlue.e91a3d3407ff908c74d2.png",
-    "static/media/postcardBackPink.png": "/postcards/static/media/postcardBackPink.855dc448c8288dc0c1e2.png",
+    "static/media/postcardFront3.png": "/postcards/static/media/postcardFront3.bd707d0349c2154dc643.png",
+    "static/media/postcardFront5.png": "/postcards/static/media/postcardFront5.c3bef439cc3b0cd48fbc.png",
+    "static/media/postcardFront1.png": "/postcards/static/media/postcardFront1.ad4b537b27ddd44580ab.png",
+    "static/media/postcardFront4.png": "/postcards/static/media/postcardFront4.76f726c6c02717ee8ce6.png",
+    "static/media/postcardFront6.png": "/postcards/static/media/postcardFront6.c092d46572c4d992af6d.png",
+    "static/media/postcardFront7.png": "/postcards/static/media/postcardFront7.5df033b6ca679962bc34.png",
+    "static/media/postcardFront9.png": "/postcards/static/media/postcardFront9.72d282eb803837b07694.png",
+    "static/media/postcardFront2.png": "/postcards/static/media/postcardFront2.00be2d8ce39d4549808c.png",
+    "static/media/postcardFront10.png": "/postcards/static/media/postcardFront10.86f2bd5456e2326a8a3f.png",
+    "static/media/postcardFront8.png": "/postcards/static/media/postcardFront8.3afa36ae9d45992c458e.png",
+    "static/media/postcardBackGreen.png": "/postcards/static/media/postcardBackGreen.968de24e207895bc6c21.png",
+    "static/media/postcardBackPink.png": "/postcards/static/media/postcardBackPink.378d1d1688d8457504c9.png",
+    "static/media/postcardBackBlue.png": "/postcards/static/media/postcardBackBlue.0a462464a46000a55e77.png",
+    "static/media/postcardBackYellow.png": "/postcards/static/media/postcardBackYellow.21b1b8b1b9bdb02d8d88.png",
     "index.html": "/postcards/index.html",
     "main.5bf66d13.css.map": "/postcards/static/css/main.5bf66d13.css.map",
-    "main.710240d4.js.map": "/postcards/static/js/main.710240d4.js.map",
+    "main.2ee6930c.js.map": "/postcards/static/js/main.2ee6930c.js.map",
     "787.1d282cc3.chunk.js.map": "/postcards/static/js/787.1d282cc3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5bf66d13.css",
-    "static/js/main.710240d4.js"
+    "static/js/main.2ee6930c.js"
   ]
 }
