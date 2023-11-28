@@ -21,14 +21,18 @@ import postcardBackPink from '../postcardImages/postcardBackPink.png';
 import postcardBackYellow from '../postcardImages/postcardBackYellow.png';
 import SendPdfToEmail from './SendPdfToEmail';
 
+
+import Ros1 from '../postcardImages/Ros1.png';
+import Ros2 from '../postcardImages/Ros2.png';
+import Ros3 from '../postcardImages/Ros3.png';
+import Ros4 from '../postcardImages/Ros4.png';
+
 const PostcardsHome: React.FC = () => {
     const [pdfForEmail, setPdfForEmail] = useState<Blob>();
-    const [selectedImage, setSelectedImage] = useState<string | null>(postcardFront9);
+    const [selectedImage, setSelectedImage] = useState<string | null>(Ros1);
     const [textToPrint, setTextToPrint] = useState<string>('');
 
-    const frontSideImages = [ postcardFront1, postcardFront2, postcardFront3, postcardFront4, postcardFront5,
-        postcardFront6, postcardFront7, postcardFront8, postcardFront9, postcardFront10
-    ];
+    const frontSideImages = [ Ros1, Ros2, Ros3, Ros4 ];
     const backSideImages = [ postcardBackGreen, postcardBackPink, postcardBackYellow, postcardBackBlue ]; // TO DO: randomly assign this as background
     const [selectedColor, setSelectedColor] = useState<string>("pink");
 
