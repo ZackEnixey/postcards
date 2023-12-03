@@ -29,10 +29,10 @@ import Ros4 from '../postcardImages/Ros4.png';
 
 const PostcardsHome: React.FC = () => {
     const [pdfForEmail, setPdfForEmail] = useState<Blob>();
-    const [selectedImage, setSelectedImage] = useState<string | null>(Ros1);
+    const [selectedImage, setSelectedImage] = useState<string | null>(postcardFront2);
     const [textToPrint, setTextToPrint] = useState<string>('');
 
-    const frontSideImages = [ Ros1, postcardFront1, Ros2, postcardFront2, Ros3, postcardFront3, Ros4, postcardFront4, postcardFront5, postcardFront6, postcardFront7, postcardFront8, postcardFront9, postcardFront10 ];
+    const frontSideImages = [ postcardFront1, postcardFront2, postcardFront3, postcardFront4, postcardFront5, postcardFront6, postcardFront7, postcardFront8, postcardFront9, postcardFront10 ];
     const backSideImages = [ postcardBackGreen, postcardBackPink, postcardBackYellow, postcardBackBlue ]; // TO DO: randomly assign this as background
     const [selectedColor, setSelectedColor] = useState<string>("pink");
 
