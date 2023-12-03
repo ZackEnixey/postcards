@@ -32,7 +32,7 @@ const PostcardsHome: React.FC = () => {
     const [selectedImage, setSelectedImage] = useState<string | null>(Ros1);
     const [textToPrint, setTextToPrint] = useState<string>('');
 
-    const frontSideImages = [ Ros1, Ros2, Ros3, Ros4 ];
+    const frontSideImages = [ Ros1, postcardFront1, Ros2, postcardFront2, Ros3, postcardFront3, Ros4, postcardFront4, postcardFront5, postcardFront6, postcardFront7, postcardFront8, postcardFront9, postcardFront10 ];
     const backSideImages = [ postcardBackGreen, postcardBackPink, postcardBackYellow, postcardBackBlue ]; // TO DO: randomly assign this as background
     const [selectedColor, setSelectedColor] = useState<string>("pink");
 
